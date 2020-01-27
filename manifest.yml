@@ -2,7 +2,7 @@ applications:
   - name: cafeteria-inventory-app-example
     buildpacks:
       - java_buildpack
-    path: build/libs/inventory-0.0.1-SNAPSHOT.jar
+    path: build/libs/cafeteria-inventory-app-example-0.0.1-SNAPSHOT.jar
     services:
       - inventory-db
     routes:
