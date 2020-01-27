@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments::head">
+</head>
+<h1 th:replace="fragments::h1"></h1>
+<body>
+<div align="center">
+    <a class="btn btn-outline-primary" href="/hello" role="button">Home</a>  <b></b>
+    <a class="btn btn-outline-primary" href="/product" role="button">Product list</a>  <b></b>
+</div>
+
+<div align="center">
+    <form method="post" th:object="${product}">
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Name</td>
+                <td><input type="text" th:field="*{name}" /></td>
+                <span th:errors="*{name}" class="error"></span>
+            </tr>
+
+            <tr>
+                <td>Product Class</td>
+                <td><select name="productClassId">
+                    <option th:each="productClass : ${productClassList}"
+                            th:text="${productClass.description}"
+                            th:value="${productClass.productClassId}"></option>
+                </select></td>
+                <span th:errors="*{productClass}" class="error"></span>
+            </tr>
+
+            <tr>
+                <td>Vendor</td>
+                <td><input type="text"th:field="*{vendor}" /></td>
+                <span th:errors="*{vendor}" class="error"></span>
+            </tr>
+
+            <tr>
+                <td>Vendor Product Number</td>
+                <td><input type="text" th:field="*{vendorProductNum}" /></td>
+                <span th:errors="*{vendorProductNum}" class="error"></span>
+            </tr>
+
+            <tr>
+                <td>Purchase Unit Measure</td>
+                <td><input type="text" th:field="*{purchaseUnitMeasure}" /></td>
+                <span th:errors="*{purchaseUnitMeasure}" class="error"></span>
+            </tr>
+
+
+            <tr>
+                <td>Cost per Purchase U of M</td>
+                <td><input type="text"th:field="*{costPerPurchaseUofM}" /></td>
+                <span th:errors="*{costPerPurchaseUofM}" class="error"></span>
+            </tr>
+        </table>
+        <br/>
+        <input type="submit" value="Add Product" class="btn btn-success" />
+
+    </form>
+</div>
+
+</body>
+
+</html>

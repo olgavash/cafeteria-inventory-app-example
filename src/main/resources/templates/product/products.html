@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments::head">
+</head>
+<h1 th:replace="fragments::h1"></h1>
+
+<body>
+
+<div th:replace="fragments::navigation">
+</div>
+
+<table class="table table-striped" border="0" cellpadding="10">
+    <thead>
+    <tr>
+        <th>Product Number</th>
+        <th>Product Class</th>
+        <th>Product Name</th>
+        <th>Vendor</th>
+        <th>Vendor Product Number</th>
+        <th>Purchase Unit Measure</th>
+        <th>Cost per Purchase U of M</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.productId}"></td>
+        <td th:text="${product.getProductClass().getDescription()}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.vendor}"></td>
+        <td th:text="${product.vendorProductNum}"></td>
+        <td th:text="${product.purchaseUnitMeasure}"></td>
+        <td th:text="${product.costPerPurchaseUofM}"></td>
+
+    </tr>
+    </tbody>
+</table>
+
+</body>
+
+</html>

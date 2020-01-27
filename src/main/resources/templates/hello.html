@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head th:replace="fragments::head">Cafeteria Inventory</head>
+<body>
+<h1 align="center"  th:inline="text">Hello, [[${#httpServletRequest.remoteUser}]]!</h1>
+<h2 align="center">Welcome to the Cafeteria Inventory!</h2>
+<p align="center">What do you want to do?</p>
+<div class="container4" align="center"  >
+
+    <div class="btn-group" role="group" aria-label="Basic example" >
+        <div class="btn-group" role="group">
+            <a class="btn btn-primary" href="/currentInventory" role="button">See the Current Inventory </a>
+        </div>
+        <div class="btn-group" role="group">
+            <a class="btn btn-primary" href="/countSheet" role="button">Update Count Sheet</a>
+        </div>
+        <div class="btn-group" role="group">
+            <form th:action="@{/logout}" method="post">
+                <input class="btn btn-primary" type="submit" value="Sign Out"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

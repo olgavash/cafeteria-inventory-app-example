@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:replace="fragments::head">
+</head>
+<h1 th:replace="fragments::h1"></h1>
+<body>
+<div align="center">
+    <a class="btn btn-outline-primary" href="/hello" role="button">Home</a>  <b></b>
+    <a class="btn btn-outline-primary" href="/product" role="button">Product list</a>  <b></b>
+</div>
+<div align="center">
+    <form method="post">
+        <table  border="0" cellpadding="10">
+            <thead>
+            <tr>
+                <th>Product Number</th>
+                <th>Name</th>
+                <th>Mark a product</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product : ${products}" class="checkbox">
+                <td th:text="${product.productId}"></td>
+                <td><label th:for="${product.productId}" th:text="${product.name}"></label></td>
+                <td><input type="checkbox"  name="productIds" th:value="${product.productId}" th:id="${product.productId}"/></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <input type="submit" value="Delete Selected Products" class="btn btn-danger"/>
+        <br/>
+
+    </form>
+</div>
+</body>
+</html>

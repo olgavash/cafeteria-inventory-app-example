@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments::head">
+</head>
+<h1 th:replace="fragments::h1"></h1>
+<body  class="container">
+<div align="center" >
+    <a class="btn btn-outline-primary" href="/hello" role="button">Home</a>  <b></b>
+    <a class="btn btn-outline-primary" href="/product" role="button">Product list</a>  <b></b>
+</div>
+<div align="center">
+    <form method="get" action="/countSheet/formreturn"  >
+        <table border="0" cellpadding="10">
+            <thead>
+            <tr>
+                <th>Product Number</th>
+                <th>Name</th>
+                <th>Inventory Date</th>
+                <th>Count</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="countSheet : ${countSheets}">
+                <td th:text="${countSheet.productId}"></td>
+                <td th:text="${countSheet.getProduct().getName()}"></td>
+                <td th:text="${currentDate}"></td>
+                <td> <input type="text" name="countInput"/></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <input type="submit" value="Save Count Sheet" class="btn btn-success"/>
+        <br/>
+
+    </form>
+</div>
+</body>
+</html>

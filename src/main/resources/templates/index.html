@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:replace="fragments::head">
+</head>
+
+<h1 th:replace="fragments::h1">Current Inventory</h1>
+
+<body class="container">
+<p align="center">Welcome!</p>
+<div align="center">
+    <p>Please <a th:href="@{/hello}">login</a> to see a current inventory.</p>
+</div>
+
+</body>
+</html>
